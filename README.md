@@ -9,7 +9,7 @@
 
 <p align="center">
   <b>🌍 Visit now!</b><br>
-  [https://alreadyclosed.github.io/JAT/](https://alreadyclosed.github.io/JAT/)
+  https://alreadyclosed.github.io/JAT/
 </p>
 
 ---
