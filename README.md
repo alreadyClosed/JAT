@@ -42,4 +42,4 @@
 ## 🚀 Getting Started
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/your-username/jat-framework.git](https://github.com/your-username/jat-framework.git)
+   git clone https://github.com/alreadyClosed/JAT.git
