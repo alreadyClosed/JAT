@@ -64,7 +64,8 @@ const myTools = [
 ];
 ```
 ---
-
+**Credits:** All tools and resources linked in this framework belong to their respective authors. Gratitude to the security community for these incredible open-source contributions.
+---
 <p align="center">
   <i>"Locally Hosted Hacking Portal"</i><br>
   <b>John's Awesome Tools</b>
