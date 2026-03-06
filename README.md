@@ -2,9 +2,14 @@
 > **John's Awesome Tools** • A curated, locally hosted library for OSINT, Cybersecurity, and Research.
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Status-Stable-success?style=for-the-badge&logo=github" />
-  <img src="https://img.shields.io/badge/Environment-Local_Web-orange?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Theme-Cyberpunk_Dark-blueviolet?style=for-the-badge" />
+  <img src="[https://img.shields.io/badge/Status-Stable-success?style=for-the-badge&logo=github](https://img.shields.io/badge/Status-Stable-success?style=for-the-badge&logo=github)" />
+  <img src="[https://img.shields.io/badge/Environment-Local_Web-orange?style=for-the-badge](https://img.shields.io/badge/Environment-Local_Web-orange?style=for-the-badge)" />
+  <img src="[https://img.shields.io/badge/Theme-Cyberpunk_Dark-blueviolet?style=for-the-badge](https://img.shields.io/badge/Theme-Cyberpunk_Dark-blueviolet?style=for-the-badge)" />
+</p>
+
+<p align="center">
+  <b>🌍 Visit now!</b><br>
+  [https://alreadyclosed.github.io/JAT/](https://alreadyclosed.github.io/JAT/)
 </p>
 
 ---
@@ -39,9 +44,9 @@
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Getting Started (Locally)
 1. **Clone the repository:**
-  ``` git clone https://github.com/alreadyClosed/JAT.git ```
+   git clone ```(https://github.com/alreadyClosed/JAT.git)```
 
 2. **Launch:**
    Simply open index.html in any modern web browser.
