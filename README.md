@@ -46,7 +46,7 @@
 
 ## 🚀 Getting Started (Locally)
 1. **Clone the repository:**
-   git clone ```(https://github.com/alreadyClosed/JAT.git)```
+   git clone ```https://github.com/alreadyClosed/JAT.git```
 
 2. **Launch:**
    Simply open index.html in any modern web browser.
