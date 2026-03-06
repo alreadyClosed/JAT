@@ -1,4 +1,3 @@
-markdown
 # [ JAT_FRAMEWORK ] v2.0
 > **John's Awesome Tools** • A curated, locally hosted library for OSINT, Cybersecurity, and Research.
 
@@ -42,36 +41,26 @@ markdown
 
 ## 🚀 Getting Started
 1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/alreadyClosed/JAT.git](https://github.com/alreadyClosed/JAT.git)
-
-```
+  ``` git clone https://github.com/alreadyClosed/JAT.git ```
 
 2. **Launch:**
-Simply open `index.html` in any modern web browser.
+   Simply open index.html in any modern web browser.
+
 3. **Usage:**
-Type any tool name (e.g., "Shodan" or "Hash") into the search bar to filter results instantly.
+   Type any tool name (e.g., "Shodan" or "Hash") into the search bar to filter results instantly.
 
 ---
 
 ## 📝 Customization
-
-To add your own links, simply edit the `myTools` array in the `<script>` tag of the `index.html` file:
-
-```javascript
-const myTools = [
-    ["CATEGORY", "Tool Name", "[https://url-link.com](https://url-link.com)"],
-];
-
+To add your own links, simply edit the myTools array in the script tag of the index.html file:
 ```
-
+const myTools = [
+    ["CATEGORY", "Tool Name", "https://url-link.com"],
+];
+```
 ---
 
 <p align="center">
-<i>"Locally Hosted Hacking Portal"</i>
-
-
-
-
-<b>John's Awesome Tools</b>
+  <i>"Locally Hosted Hacking Portal"</i><br>
+  <b>John's Awesome Tools</b>
 </p>
