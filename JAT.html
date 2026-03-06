@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAT - John's Awesome Tools</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --card-bg: #161b22;
+            --border: #30363d;
+            --text-main: #c9d1d9;
+            --accent: #58a6ff;
+            --accent-folder: #bc8cff;
+            --neon-orange: #f0883e;
+            --success: #3fb950;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            border-bottom: 2px solid var(--neon-orange);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            color: var(--neon-orange);
+            letter-spacing: 2px;
+        }
+
+        #searchJAT {
+            width: 100%;
+            padding: 12px 15px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            outline: none;
+            transition: border-color 0.3s;
+
+            /* ADD THIS LINE */
+            box-sizing: border-box;
+        }
+
+        #searchJAT:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 8px rgba(88, 166, 255, 0.3);
+        }
+
+        .tree-root {
+            list-style: none;
+            padding: 0;
+        }
+
+        details {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--accent-folder);
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        summary:hover {
+            background: #21262d;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .folder-content {
+            padding: 10px 0 10px 20px;
+            border-top: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 10px;
+            background: var(--bg);
+        }
+
+        .tool-link {
+            padding: 8px 12px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            transition: all 0.2s;
+        }
+
+        .tool-link:hover {
+            background: rgba(88, 166, 255, 0.1);
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .tool-link::before {
+            content: "↪";
+            margin-right: 10px;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .count-badge {
+            background: #30363d;
+            color: #8b949e;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #484f58;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>[ JAT_FRAMEWORK ]</h1>
+            <div style="font-size: 0.8rem; color: var(--success);">v2.0 STABLE ( hopefully )</div>
+        </header>
+
+        <input type="text" id="searchJAT" placeholder="Search JAT library..." onkeyup="searchTools()">
+
+        <div id="tree-container" class="tree-root"></div>
+
+        <footer>
+            John's Awesome Tools • Locally Hosted Hacking Portal
+        </footer>
+    </div>
+
+    <script>
+        // --- ALL YOUR LINKS ORGANIZED ---
+        const myTools = [
+            // OSINT
+            ["OSINT", "OSINT Framework", "https://osintframework.com/"],
+            ["OSINT", "PimEyes (Face Search)", "https://pimeyes.com/en"],
+            ["OSINT", "Intel Techniques Tools", "https://inteltechniques.com/tools/index.html"],
+            ["OSINT", "Intelligence X", "https://intelx.io/"],
+            ["OSINT", "TunnelsUp Hash Analyzer", "https://www.tunnelsup.com/hash-analyzer/"],
+            ["OSINT", "crt.sh (Certificate Search)", "https://crt.sh/?q"],
+            ["OSINT", "ProjectDiscovery Chaos", "https://chaos.projectdiscovery.io/#/"],
+            ["OSINT", "Vulmon (Vulnerability Search)", "https://vulmon.com/"],
+            ["OSINT", "StegOnline", "https://georgeom.net/StegOnline/upload"],
+            ["OSINT", "Dark Web OSINT Guide", "https://github.com/apurvsinghgautam/dark-web-osint-tools"],
+            ["OSINT", "Shodan", "https://www.shodan.io/"],
+            ["OSINT", "Pentester App", "https://app.pentester.com/"],
+            ["OSINT", "OSINT Resource List", "https://pastebin.com/8cX7KAza"],
+            ["OSINT", "Google Dorking Cheat sheet", "https://mega.nz/file/JX8zzBiT#ba63Ccn9mpv9fpb0jxmX-PqRGC4dkD8eF34mpidv7Ts"],
+            ["OSINT", "Epieos (Email Search)", "https://epieos.com/"],
+            ["OSINT", "SimpleLogin (Alias)", "https://simplelogin.io/"],
+            ["OSINT", "BrowserLeaks", "https://browserleaks.com/"],
+            // STUDY
+            ["STUDY", "Hack The Box", "https://www.hackthebox.com/"],
+            ["STUDY", "TryHackMe", "https://tryhackme.com/"],
+            ["STUDY", "Hashcat Example Hashes", "https://hashcat.net/wiki/doku.php?id=example_hashes"],
+            ["STUDY", "Jaxafed (Security Blog)", "https://jaxafed.github.io/"],
+            ["STUDY", "XSS Cheat Sheet (PortSwigger)", "https://portswigger.net/web-security/cross-site-scripting/cheat-sheet"],
+            ["STUDY", "Ransomware Live", "https://www.ransomware.live/"],
+            ["STUDY", "Metasploit Credential Mutations", "https://help.rapid7.com/metasploit/Content/bruteforce-credentials/credential-mutations.html"],
+            ["STUDY", "CURL/PHP Base64 Logic", "https://stackoverflow.com/questions/58208037/curling-with-php-base64-encoder-decoder-instead-of-just-curling-why"],
+            ["STUDY", "WordPress File Structure", "https://devowl.io/wordpress/file-folder-structure/"],
+            ["STUDY", "Kali Linux TP-Link TL-WN722N install (Video)", "https://www.youtube.com/watch?v=-xkpgvjuEy0&t=4s"],
+            ["STUDY", "Cheat Sheets","https://github.com/OWASP/CheatSheetSeries/tree/master/cheatsheets"],
+            // CTF/BUG BOUNTY
+            ["CTF/BUG BOUNTY", "Hacker101", "https://www.hacker101.com/"],
+            ["CTF/BUG BOUNTY", "Infosec Writeups", "https://infosecwriteups.com/all?topic=bug-bounty"],
+            ["CTF/BUG BOUNTY", "HackerOne Opportunities", "https://hackerone.com/opportunities/all"],
+            ["CTF/BUG BOUNTY", "picoCTF", "https://picoctf.org/"],
+
+            // TOOLS
+            ["TOOLS", "Awesome Bug Bounty Tools", "https://github.com/vavkamil/awesome-bugbounty-tools"],
+            ["TOOLS", "LinEnum", "https://github.com/rebootuser/LinEnum"],
+            ["TOOLS", "PEASS-ng", "https://github.com/peass-ng/PEASS-ng"],
+            ["TOOLS", "MagicBytes Reference", "https://github.com/Haxrein/MagicBytes"],
+            ["TOOLS", "Reverse Shell Generator", "https://www.revshells.com/"],
+            ["TOOLS", "GTFOBins", "https://gtfobins.org/"],
+            ["TOOLS", "SecLists", "https://github.com/danielmiessler/SecLists"],
+            ["TOOLS", "DNSDumpster", "https://dnsdumpster.com/"],
+            ["TOOLS", "Checkphish", "https://checkphish.bolster.ai/"],
+            ["TOOLS", "IP Logger", "https://iplogger.org/"],
+            ["TOOLS", "Network Location (YouGetSignal)", "https://www.yougetsignal.com/tools/network-location/"],
+            ["TOOLS", "Check-Host", "https://check-host.net/"],
+            ["TOOLS", "MaxMind GeoIP", "https://www.maxmind.com/en/home"],
+            ["TOOLS", "Redirect Checker", "https://www.redirect-checker.org/index.php"],
+            ["TOOLS", "Wappalyzer", "https://www.wappalyzer.com/"],
+            ["TOOLS", "FoxyProxy", "https://getfoxyproxy.org/downloads/"],
+            ["TOOLS", "EditThisCookie", "https://www.editthiscookie.com/"],
+            ["TOOLS", "DNS Checker", "https://dnschecker.org/"],
+            ["TOOLS", "Flask-Unsign", "https://github.com/Paradoxis/Flask-Unsign"],
+            ["TOOLS", "NullSecurity Tools", "https://nullsecurity.net/tools.html"],
+            ["TOOLS", "x64dbg", "https://x64dbg.com/"],
+            ["TOOLS", "Nikto Scanner", "https://github.com/sullo/nikto"],
+            ["TOOLS", "CyberChef", "https://gchq.github.io/CyberChef/"],
+            ["TOOLS", "Binary Ninja", "https://binary.ninja/free/"],
+            ["TOOLS", "Binwalk", "https://github.com/ReFirmLabs/binwalk"],
+            ["TOOLS", "Hex Encoder/Decoder", "https://www.convertstring.com/EncodeDecode/HexEncode"],
+            ["TOOLS", "Webhook.site (Request Tester)", "https://webhook.site/"],
+
+            // EXPLOIT/CRACK
+            ["EXPLOIT", "Exploit-DB", "https://www.exploit-db.com/"],
+            ["EXPLOIT", "CrackStation (Hash Cracker)", "https://crackstation.net/"],
+            ["EXPLOIT", "MSFVenom Cheat Sheet", "https://github.com/frizb/MSF-Venom-Cheatsheet"],
+
+            // RESOURCES
+            ["RESOURCES", "Kali Archive Signing Keys", "https://www.kali.org/blog/new-kali-archive-signing-key/"],
+            ["RESOURCES", "RG-Adguard (MS Archive)", "https://files.rg-adguard.net/"],
+
+            // PHYSICAL
+            ["PHYSICAL", "Keygen.co (Key Codes)", "https://keygen.co/"],
+            ["PHYSICAL", "Proxmark3 Getting Started", "https://github.com/RfidResearchGroup/proxmark3"],
+
+            //RECON
+            ["RECON", "SpiderFoot (Automation)", "https://www.spiderfoot.net/"],
+            ["RECON", "Subfinder (Subdomains)", "https://github.com/projectdiscovery/subfinder"],
+            ["RECON", "Amass", "https://github.com/owasp-amass/amass"],
+            
+        ];
+
+        function buildJAT() {
+            const container = document.getElementById('tree-container');
+            const categories = {};
+
+            myTools.sort((a, b) => a[0].localeCompare(b[0])); // Sort folders A-Z
+
+            myTools.forEach(([cat, name, url]) => {
+                if (!categories[cat]) categories[cat] = [];
+                categories[cat].push({ name, url });
+            });
+
+            for (const cat in categories) {
+                const details = document.createElement('details');
+                const summary = document.createElement('summary');
+                summary.innerHTML = `${cat} <span class="count-badge">${categories[cat].length}</span>`;
+
+                const content = document.createElement('div');
+                content.className = 'folder-content';
+
+                categories[cat].forEach(tool => {
+                    const link = document.createElement('a');
+                    link.href = tool.url;
+                    link.target = "_blank";
+                    link.className = 'tool-link';
+                    link.innerText = tool.name;
+                    content.appendChild(link);
+                });
+
+                details.appendChild(summary);
+                details.appendChild(content);
+                container.appendChild(details);
+            }
+        }
+
+        function searchTools() {
+            let input = document.getElementById('searchJAT').value.toLowerCase();
+            let details = document.getElementsByTagName('details');
+
+            for (let detail of details) {
+                let links = detail.getElementsByClassName('tool-link');
+                let hasMatch = false;
+
+                for (let link of links) {
+                    if (link.innerText.toLowerCase().includes(input)) {
+                        link.classList.remove('hidden');
+                        hasMatch = true;
+                    } else {
+                        link.classList.add('hidden');
+                    }
+                }
+
+                if (hasMatch) {
+                    detail.classList.remove('hidden');
+                    detail.open = input.length > 0;
+                } else {
+                    detail.classList.add('hidden');
+                }
+            }
+        }
+
+        buildJAT();
+    </script>
+
+</body>
+
+</html>
