@@ -161,17 +161,19 @@
     <div class="container">
         <header>
             <h1>[ JAT_FRAMEWORK ]</h1>
-            <div style="font-size: 0.8rem; color: var(--success);">v2.0 STABLE ( hopefully )</div>
+            <div style="font-size: 0.8rem; color: var(--success);">v3.0 STABLE ( hopefully )</div>
         </header>
 
         <input type="text" id="searchJAT" placeholder="Search JAT library..." onkeyup="searchTools()">
 
         <div id="tree-container" class="tree-root"></div>
 
-    <footer>
-     John's Awesome Tools • Locally Hosted Hacking Portal<br>
-     <a href="https://github.com/alreadyClosed/JAT" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.75rem; opacity: 0.7;">View Source on GitHub</a>
-    </footer>
+        <footer>
+            John's Awesome Tools • Locally Hosted Hacking Portal<br>
+            <a href="https://github.com/alreadyClosed/JAT" target="_blank"
+                style="color: var(--accent); text-decoration: none; font-size: 0.75rem; opacity: 0.7;">View Source on
+                GitHub</a>
+        </footer>
     </div>
 
     <script>
@@ -195,6 +197,7 @@
             ["OSINT", "SimpleLogin (Alias)", "https://simplelogin.io/"],
             ["OSINT", "BrowserLeaks", "https://browserleaks.com/"],
             ["OSINT", "WiGLE", "https://wigle.net/"],
+
             // STUDY
             ["STUDY", "Hack The Box", "https://www.hackthebox.com/"],
             ["STUDY", "TryHackMe", "https://tryhackme.com/"],
@@ -206,15 +209,16 @@
             ["STUDY", "CURL/PHP Base64 Logic", "https://stackoverflow.com/questions/58208037/curling-with-php-base64-encoder-decoder-instead-of-just-curling-why"],
             ["STUDY", "WordPress File Structure", "https://devowl.io/wordpress/file-folder-structure/"],
             ["STUDY", "Kali Linux TP-Link TL-WN722N install (Video)", "https://www.youtube.com/watch?v=-xkpgvjuEy0&t=4s"],
-            ["STUDY", "OWASP Cheat Sheets","https://cheatsheetseries.owasp.org/index.html"],
-            ["STUDY", "Payloads All The Things","https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master"],
+            ["STUDY", "OWASP Cheat Sheets", "https://cheatsheetseries.owasp.org/index.html"],
+            ["STUDY", "Payloads All The Things", "https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master"],
             ["STUDY", "Infosec Writeups", "https://infosecwriteups.com/"],
+
             // CTF/BUG BOUNTY
             ["CTF/BUG BOUNTY", "Hacker101", "https://www.hacker101.com/"],
             ["CTF/BUG BOUNTY", "HackerOne Opportunities", "https://hackerone.com/opportunities/all"],
             ["CTF/BUG BOUNTY", "picoCTF", "https://picoctf.org/"],
 
-            // TOOLS
+            // TOOLS (Security Specific)
             ["TOOLS", "Awesome Bug Bounty Tools", "https://github.com/vavkamil/awesome-bugbounty-tools"],
             ["TOOLS", "LinEnum", "https://github.com/rebootuser/LinEnum"],
             ["TOOLS", "PEASS-ng", "https://github.com/peass-ng/PEASS-ng"],
@@ -242,14 +246,16 @@
             ["TOOLS", "Binwalk", "https://github.com/ReFirmLabs/binwalk"],
             ["TOOLS", "Hex Encoder/Decoder", "https://www.convertstring.com/EncodeDecode/HexEncode"],
             ["TOOLS", "Webhook.site (Request Tester)", "https://webhook.site/"],
-            ["TOOLS","Wireshark","https://www.wireshark.org/"],
-            ["TOOLS","dnSpy","https://github.com/dnSpy/dnSpy"],
-            ["TOOLS","Cheat Engine","https://www.cheatengine.org/"],
-            ["TOOLS", "Microsoft Activation Scripts (MAS)", "https://massgrave.dev/"],
-            ["TOOLS","BalenaEtcher","https://etcher.balena.io/"],
-            ["TOOLS","Rufus","https://rufus.ie/"],
-            ["TOOLS","Gpg4Win","https://www.gpg4win.org/"],
-            ["TOOLS","Sublime Text","https://www.sublimetext.com/"],
+            ["TOOLS", "Wireshark", "https://www.wireshark.org/"],
+            ["TOOLS", "dnSpy", "https://github.com/dnSpy/dnSpy"],
+            ["TOOLS", "Cheat Engine", "https://www.cheatengine.org/"],
+
+            // SYSTEM/UTILITIES (General purpose tools)
+            ["SYSTEM/UTILITIES", "Microsoft Activation Scripts (MAS)", "https://massgrave.dev/"],
+            ["SYSTEM/UTILITIES", "BalenaEtcher", "https://etcher.balena.io/"],
+            ["SYSTEM/UTILITIES", "Rufus", "https://rufus.ie/"],
+            ["SYSTEM/UTILITIES", "Gpg4Win", "https://www.gpg4win.org/"],
+            ["SYSTEM/UTILITIES", "Sublime Text", "https://www.sublimetext.com/"],
 
             // EXPLOIT/CRACK
             ["EXPLOIT", "Exploit-DB", "https://www.exploit-db.com/"],
@@ -264,27 +270,32 @@
             ["PHYSICAL", "Keygen.co Key creator", "https://keygen.co/"],
             ["PHYSICAL", "Proxmark3 Getting Started", "https://github.com/RfidResearchGroup/proxmark3"],
 
-            //RECON
+            // RECON
             ["RECON", "SpiderFoot (Automation)", "https://www.spiderfoot.net/"],
             ["RECON", "Subfinder (Subdomains)", "https://github.com/projectdiscovery/subfinder"],
             ["RECON", "Amass", "https://github.com/owasp-amass/amass"],
-            
         ];
 
         function buildJAT() {
             const container = document.getElementById('tree-container');
+            container.innerHTML = "";
             const categories = {};
-
-            myTools.sort((a, b) => a[0].localeCompare(b[0])); // Sort folders A-Z
 
             myTools.forEach(([cat, name, url]) => {
                 if (!categories[cat]) categories[cat] = [];
                 categories[cat].push({ name, url });
             });
 
-            for (const cat in categories) {
+            const sortedCategoryNames = Object.keys(categories).sort((a, b) => {
+                return categories[b].length - categories[a].length;
+            });
+
+            sortedCategoryNames.forEach(cat => {
                 const details = document.createElement('details');
                 const summary = document.createElement('summary');
+
+                categories[cat].sort((a, b) => a.name.localeCompare(b.name));
+
                 summary.innerHTML = `${cat} <span class="count-badge">${categories[cat].length}</span>`;
 
                 const content = document.createElement('div');
@@ -302,7 +313,7 @@
                 details.appendChild(summary);
                 details.appendChild(content);
                 container.appendChild(details);
-            }
+            });
         }
 
         function searchTools() {
@@ -337,16 +348,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
