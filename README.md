@@ -1,4 +1,4 @@
-# [ JAT_FRAMEWORK ] v2.0
+# [ JAT_FRAMEWORK ] v3.0
 > **John's Awesome Tools** • A curated, locally hosted library for OSINT, Cybersecurity, and Research.
 
 <p align="center">
