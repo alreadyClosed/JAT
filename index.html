@@ -6,7 +6,7 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JAT - John's Awesome Tools</title>
-    <style>
+<style>
         :root {
             --bg: #0d1117;
             --card-bg: #161b22;
@@ -39,6 +39,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap; 
+            gap: 10px;
         }
 
         h1 {
@@ -59,8 +61,6 @@
             margin-bottom: 25px;
             outline: none;
             transition: border-color 0.3s;
-
-            /* ADD THIS LINE */
             box-sizing: border-box;
         }
 
@@ -112,7 +112,7 @@
         }
 
         .tool-link {
-            padding: 8px 12px;
+            padding: 12px 12px; 
             color: var(--text-main);
             text-decoration: none;
             font-size: 0.9rem;
@@ -152,6 +152,29 @@
             text-align: center;
             font-size: 0.8rem;
             color: #484f58;
+            padding-bottom: 20px;
+        }
+
+        /* --- MOBILE FIXES --- */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column; 
+                align-items: center;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 1.4rem;
+            }
+
+            .folder-content {
+                grid-template-columns: 1fr;
+                padding-left: 10px;
+            }
+            
+            .tool-link {
+                border-bottom: 1px solid #21262d; 
+            }
         }
     </style>
 </head>
