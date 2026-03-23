@@ -46,7 +46,6 @@
             white-space: nowrap; 
         }
 
-        /* Mobile Fix for Title wrapping */
         @media (max-width: 600px) {
             h1 { font-size: 1.3rem; letter-spacing: 1px; }
         }
@@ -158,6 +157,16 @@
         .folder-arrow { font-size: 0.7rem; color: #484f58; transition: transform 0.3s; margin-left: 12px; display: inline-block; }
         .category-node.is-open .folder-arrow { transform: rotate(90deg); color: var(--accent); }
         
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            font-family: 'Consolas', monospace;
+            font-size: 0.85rem;
+            color: #484f58;
+            border-top: 1px solid var(--border);
+        }
+
         .hidden { display: none !important; }
     </style>
 </head>
@@ -182,6 +191,12 @@
 
         <input type="text" id="searchJAT" placeholder="Search tools..." onkeyup="searchTools()">
         <div id="tree-container"></div>
+
+        <footer>
+            John's Awesome Tools • Terminal UI<br>
+            <a href="https://github.com/alreadyClosed/JAT" target="_blank"
+                style="color: var(--accent); text-decoration: none; opacity: 0.7;">[ View Repository ]</a>
+        </footer>
     </div>
 
     <script>
