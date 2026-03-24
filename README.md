@@ -1,4 +1,4 @@
-# [ JAT_FRAMEWORK ] v5.0
+# [ JAT_FRAMEWORK ] v5.1
 > **John's Awesome Tools** • A clean, terminal-inspired workstation for OSINT, Cybersecurity, and Research.
 
 <p align="center">
