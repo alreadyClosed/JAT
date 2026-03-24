@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,67 +18,107 @@
             --modal-overlay: rgba(0, 0, 0, 0.85);
         }
 
-        html { overflow-y: scroll; }
-        * { box-sizing: border-box; }
+        html {
+            overflow-y: scroll;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: var(--bg);
             color: var(--text-main);
-            margin: 0; padding: 20px;
+            margin: 0;
+            padding: 20px;
             line-height: 1.5;
         }
 
-        .container { max-width: 950px; margin: 0 auto; }
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+        }
 
         header {
             border-bottom: 2px solid var(--accent);
-            margin-bottom: 30px; padding-bottom: 10px;
-            display: flex; justify-content: space-between; align-items: center;
-            flex-wrap: wrap; gap: 10px;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        h1 { 
-            margin: 0; 
-            font-size: 1.8rem; 
-            color: var(--accent); 
-            letter-spacing: 2px; 
-            font-family: 'Consolas', monospace; 
-            white-space: nowrap; 
+        h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            color: var(--accent);
+            letter-spacing: 2px;
+            font-family: 'Consolas', monospace;
+            white-space: nowrap;
         }
 
         @media (max-width: 600px) {
-            h1 { font-size: 1.3rem; letter-spacing: 1px; }
+            h1 {
+                font-size: 1.3rem;
+                letter-spacing: 1px;
+            }
         }
 
         #searchJAT {
-            width: 100%; padding: 12px 15px; background: var(--card-bg);
-            border: 1px solid var(--border); border-radius: 4px; color: white;
-            font-size: 1rem; margin-bottom: 25px; outline: none;
+            width: 100%;
+            padding: 12px 15px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            outline: none;
             font-family: 'Consolas', monospace;
         }
-        #searchJAT:focus { border-color: var(--accent); }
+
+        #searchJAT:focus {
+            border-color: var(--accent);
+        }
 
         .category-node {
-            background: var(--card-bg); border: 1px solid var(--border);
-            border-radius: 4px; margin-bottom: 10px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            margin-bottom: 10px;
             overflow: hidden;
             transition: border-color 0.2s;
         }
-        .category-node.is-open { border-color: var(--accent); }
+
+        .category-node.is-open {
+            border-color: var(--accent);
+        }
 
         .category-header {
             padding: 14px 18px;
-            cursor: pointer; display: flex;
-            justify-content: space-between; align-items: center;
-            background: #1c2128; user-select: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #1c2128;
+            user-select: none;
             min-height: 54px;
         }
-        .category-header:hover { background: #21262d; }
+
+        .category-header:hover {
+            background: #21262d;
+        }
 
         .header-left {
-            font-family: 'Consolas', monospace; text-transform: uppercase; 
-            letter-spacing: 1.5px; font-size: 0.95rem; color: var(--accent); font-weight: bold;
+            font-family: 'Consolas', monospace;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.95rem;
+            color: var(--accent);
+            font-weight: bold;
         }
 
         .category-content {
@@ -85,78 +126,168 @@
             grid-template-rows: 0fr;
             transition: grid-template-rows 0.3s ease-in-out;
         }
-        .category-node.is-open .category-content { grid-template-rows: 1fr; }
 
-        .content-inner { overflow: hidden; }
+        .category-node.is-open .category-content {
+            grid-template-rows: 1fr;
+        }
+
+        .content-inner {
+            overflow: hidden;
+        }
 
         .tools-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 10px; padding: 20px; 
+            gap: 10px;
+            padding: 20px;
             border-top: 1px solid transparent;
-            opacity: 0; transition: opacity 0.3s ease-in-out;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
         }
-        .category-node.is-open .tools-grid { opacity: 1; border-color: var(--border); }
+
+        .category-node.is-open .tools-grid {
+            opacity: 1;
+            border-color: var(--border);
+        }
 
         .tool-link {
             padding: 10px 12px;
             background: rgba(255, 255, 255, 0.02);
-            border: 1px solid transparent; border-radius: 4px;
-            cursor: pointer; font-family: 'Consolas', monospace;
-            font-size: 0.85rem; color: var(--text-main);
-            transition: all 0.2s ease; display: flex; align-items: center;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Consolas', monospace;
+            font-size: 0.85rem;
+            color: var(--text-main);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
             min-height: 42px;
         }
+
         .tool-link:hover {
-            background: var(--accent-dim); border-color: var(--accent);
-            transform: translateX(5px); color: white;
+            background: var(--accent-dim);
+            border-color: var(--accent);
+            transform: translateX(5px);
+            color: white;
         }
-        .tool-link::before { content: ">"; color: var(--accent); margin-right: 12px; }
+
+        .tool-link::before {
+            content: ">";
+            color: var(--accent);
+            margin-right: 12px;
+        }
 
         #modal-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--modal-overlay); display: none;
-            justify-content: center; align-items: center; z-index: 1000;
-            backdrop-filter: blur(4px); opacity: 0; transition: opacity 0.3s ease;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--modal-overlay);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
-        #modal-overlay.active { display: flex; opacity: 1; }
+
+        #modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
 
         #tool-modal {
-            background: var(--card-bg); border: 1px solid var(--accent);
-            width: 90%; max-width: 450px; padding: 25px; border-radius: 6px;
-            transform: translateY(15px); transition: transform 0.3s ease;
+            background: var(--card-bg);
+            border: 1px solid var(--accent);
+            width: 90%;
+            max-width: 450px;
+            padding: 25px;
+            border-radius: 6px;
+            transform: translateY(15px);
+            transition: transform 0.3s ease;
         }
-        #modal-overlay.active #tool-modal { transform: translateY(0); }
 
-        .modal-footer { display: flex; justify-content: flex-end; gap: 12px; margin-top: 25px; }
+        #modal-overlay.active #tool-modal {
+            transform: translateY(0);
+        }
 
-        .btn-launch, .btn-close {
-            padding: 10px 18px; border-radius: 4px; text-decoration: none; 
-            font-weight: bold; font-family: 'Consolas', monospace; font-size: 0.85rem;
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .btn-launch,
+        .btn-close {
+            padding: 10px 18px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: 'Consolas', monospace;
+            font-size: 0.85rem;
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer; border: 1px solid transparent;
+            cursor: pointer;
+            border: 1px solid transparent;
         }
 
-        .btn-launch { background: var(--accent); color: var(--bg); }
-        .btn-launch:hover { 
+        .btn-launch {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        .btn-launch:hover {
             transform: translateY(-2px) scale(1.03);
-            background: #ff9d5c; border-color: #0d1117;
+            background: #ff9d5c;
+            border-color: #0d1117;
             box-shadow: 0 4px 12px rgba(240, 136, 62, 0.3);
         }
 
-        .btn-close { background: transparent; border: 1px solid var(--border); color: var(--text-main); }
-        .btn-close:hover { 
+        .btn-close {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+        }
+
+        .btn-close:hover {
             transform: translateY(-2px) scale(1.03);
-            border-color: var(--accent); color: var(--accent);
+            border-color: var(--accent);
+            color: var(--accent);
             background: rgba(240, 136, 62, 0.05);
         }
 
-        .btn-launch:active, .btn-close:active { transform: translateY(0) scale(0.98); }
+        .btn-launch:active,
+        .btn-close:active {
+            transform: translateY(0) scale(0.98);
+        }
 
-        .count-badge { background: #0d1117; color: var(--accent); padding: 2px 8px; border-radius: 4px; font-size: 1rem; font-weight: bold; border: 1px solid var(--border); font-family: 'Consolas', monospace; }
-        .folder-arrow { font-size: 0.7rem; color: #484f58; transition: transform 0.3s; margin-left: 12px; display: inline-block; }
-        .category-node.is-open .folder-arrow { transform: rotate(90deg); color: var(--accent); }
-        
+        .count-badge {
+            background: #0d1117;
+            color: var(--accent);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: 1px solid var(--border);
+            font-family: 'Consolas', monospace;
+        }
+
+        .folder-arrow {
+            font-size: 0.7rem;
+            color: #484f58;
+            transition: transform 0.3s;
+            margin-left: 12px;
+            display: inline-block;
+        }
+
+        .category-node.is-open .folder-arrow {
+            transform: rotate(90deg);
+            color: var(--accent);
+        }
+
         footer {
             text-align: center;
             margin-top: 50px;
@@ -167,14 +298,19 @@
             border-top: 1px solid var(--border);
         }
 
-        .hidden { display: none !important; }
+        .hidden {
+            display: none !important;
+        }
     </style>
 </head>
+
 <body>
 
     <div id="modal-overlay" onclick="closeModal()">
         <div id="tool-modal" onclick="event.stopPropagation()">
-            <h2 id="modal-title" style="color: var(--accent); margin-top:0; font-family: 'Consolas', monospace; border-bottom: 1px solid var(--border); padding-bottom: 10px; font-size: 1.3rem;"></h2>
+            <h2 id="modal-title"
+                style="color: var(--accent); margin-top:0; font-family: 'Consolas', monospace; border-bottom: 1px solid var(--border); padding-bottom: 10px; font-size: 1.3rem;">
+            </h2>
             <p id="modal-desc" style="font-size: 0.95rem; margin: 20px 0; line-height: 1.5;"></p>
             <div class="modal-footer">
                 <button class="btn-close" onclick="closeModal()">[ CLOSE ]</button>
@@ -186,7 +322,7 @@
     <div class="container">
         <header>
             <h1>[ JAT_FRAMEWORK ]</h1>
-            <div style="font-size: 0.8rem; color: var(--success); font-family: monospace;">v5.0 STABLE</div>
+            <div style="font-size: 0.8rem; color: var(--success); font-family: monospace;">v5.1 STABLE</div>
         </header>
 
         <input type="text" id="searchJAT" placeholder="Search tools..." onkeyup="searchTools()">
@@ -201,85 +337,86 @@
 
     <script>
         const myTools = [
-            ["OSINT", "OSINT Framework", "https://osintframework.com/", "A directory of OSINT tools.", "web lookup directory"],
-            ["OSINT", "PimEyes", "https://pimeyes.com/en", "Face search engine for image matching.", "facial recognition images"],
-            ["OSINT", "Intel Techniques", "https://inteltechniques.com/tools/index.html", "OSINT resources and dorking tools.", "resources google dorking"],
-            ["OSINT", "Intelligence X", "https://intelx.io/", "Search engine for data leaks.", "data leak search"],
-            ["OSINT", "Epieos", "https://epieos.com/", "Reverse email address lookup.", "email lookup"],
-            ["OSINT", "BrowserLeaks", "https://browserleaks.com/", "Security and IP leak testing.", "privacy security ip leak"],
-            ["OSINT", "WiGLE", "https://wigle.net/", "Maps of wireless networks worldwide.", "wireless networks mapping"],
-            ["OSINT", "Dark Web OSINT Guide", "https://github.com/apurvsinghgautam/dark-web-osint-tools", "Onion links and deep web resources.", "onion links deep web"],
-            ["OSINT", "Google Dorks Cheat sheet", "https://mega.nz/file/JX8zzBiT#ba63Ccn9mpv9fpb0jxmX-PqRGC4dkD8eF34mpidv7Ts", "Advanced search operator guide.", "search operators dorks"],
-            ["NETWORK & RECON", "Shodan", "https://www.shodan.io/", "Search engine for IoT devices.", "iot search sensors"],
-            ["NETWORK & RECON", "DNSDumpster", "https://dnsdumpster.com/", "DNS reconnaissance and mapping.", "dns recon domain"],
-            ["NETWORK & RECON", "DNS Checker", "https://dnschecker.org/", "Global DNS propagation lookup.", "propagation lookup"],
-            ["NETWORK & RECON", "crt.sh", "https://crt.sh/?q", "SSL certificate and subdomain search.", "ssl certificates subdomains"],
-            ["NETWORK & RECON", "ProjectDiscovery Chaos", "https://chaos.projectdiscovery.io/#/", "Recon assets and subdomains.", "recon assets subdomains"],
-            ["NETWORK & RECON", "IP Logger", "https://iplogger.org/", "Link tracking and IP grabbing.", "tracking link grabber"],
-            ["NETWORK & RECON", "Checkphish", "https://checkphish.bolster.ai/", "URL scanner for phishing sites.", "url scanner phishing"],
-            ["NETWORK & RECON", "YouGetSignal", "https://www.yougetsignal.com/tools/network-location/", "Reverse IP and port lookup.", "reverse ip lookup"],
-            ["NETWORK & RECON", "MaxMind GeoIP", "https://www.maxmind.com/en/home", "Precise geolocation data.", "location geolocation"],
-            ["NETWORK & RECON", "SpiderFoot", "https://www.spiderfoot.net/", "Automation framework for recon.", "recon framework automation"],
-            ["NETWORK & RECON", "Subfinder", "https://github.com/projectdiscovery/subfinder", "Subdomain discovery tool.", "subdomain discovery"],
-            ["NETWORK & RECON", "Amass", "https://github.com/owasp-amass/amass", "Attack surface mapping and DNS.", "attack surface mapping"],
-            ["NETWORK & RECON", "Wireshark", "https://www.wireshark.org/", "Network traffic analyzer.", "packet capture recon traffic"],
-            ["WEB SECURITY", "Wappalyzer", "https://www.wappalyzer.com/", "Identify tech stacks on websites.", "extension browser version"],
-            ["WEB SECURITY", "FoxyProxy", "https://getfoxyproxy.org/downloads/", "Proxy management extension.", "proxy management extension"],
-            ["WEB SECURITY", "EditThisCookie", "https://www.editthiscookie.com/", "Cookie editor for browsers.", "cookie editor extension"],
-            ["WEB SECURITY", "Webhook.site", "https://webhook.site/", "Test and monitor HTTP requests.", "http requests monitor"],
-            ["WEB SECURITY", "Redirect Checker", "https://www.redirect-checker.org/index.php", "Trace URL redirect paths.", "url redirect path"],
-            ["WEB SECURITY", "Nikto Scanner", "https://github.com/sullo/nikto", "Web server vulnerability scanner.", "web server vulnerabilities"],
-            ["WEB SECURITY", "XSS Cheat Sheet", "https://portswigger.net/web-security/cross-site-scripting/cheat-sheet", "Cross-site scripting payloads.", "xss payloads cheatsheets"],
-            ["WEB SECURITY", "WordPress File Structure", "https://devowl.io/wordpress/file-folder-structure/", "Guide to WP folder paths.", "wp cms wordpress structure"],
-            ["EXPLOITATION", "Exploit-DB", "https://www.exploit-db.com/", "The ultimate exploit database.", "vulnerabilities exploits database"],
-            ["EXPLOITATION", "Reverse Shell Generator", "https://www.revshells.com/", "Generate payloads and listeners.", "payloads shells listener"],
-            ["EXPLOITATION", "Payloads All The Things", "https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master", "Methodology and cheatsheets.", "methodology payloads cheatsheet"],
-            ["EXPLOITATION", "MSFVenom Cheat Sheet", "https://github.com/frizb/MSF-Venom-Cheatsheet", "Metasploit payload creation guide.", "metasploit cheatsheets"],
-            ["EXPLOITATION", "Vulmon", "https://vulmon.com/", "Vulnerability search engine.", "cve search engine"],
-            ["EXPLOITATION", "NullSecurity Tools", "https://nullsecurity.net/tools.html", "Niche exploitation security tools.", "exploit framework tools"],
-            ["POST-EXPLOITATION", "LinEnum", "https://github.com/rebootuser/LinEnum", "Linux privilege escalation script.", "linux privesc script"],
-            ["POST-EXPLOITATION", "PEASS-ng", "https://github.com/peass-ng/PEASS-ng", "Privilege escalation scripts (Win/Lin).", "privesc scripts"],
-            ["POST-EXPLOITATION", "GTFOBins", "https://gtfobins.org/", "Bypass local security restrictions (Privilege Escalation).", "linux binaries privesc"],
-            ["POST-EXPLOITATION", "SecLists", "https://github.com/danielmiessler/SecLists", "Wordlists for passwords and fuzzing.", "wordlists passwords fuzzing"],
-            ["REVERSE ENGINEERING", "x64dbg", "https://x64dbg.com/", "Open source Windows debugger.", "windows debugger binary"],
-            ["REVERSE ENGINEERING", "Binary Ninja", "https://binary.ninja/free/", "Disassembler and analysis suite.", "disassembler analysis tool"],
-            ["REVERSE ENGINEERING", "Binwalk", "https://github.com/ReFirmLabs/binwalk", "Firmware analysis and extraction for linux.", "firmware analysis bin"],
-            ["REVERSE ENGINEERING", "dnSpy", "https://github.com/dnSpy/dnSpy", ".NET debugger and assembly editor.", "net debugger assembly"],
-            ["REVERSE ENGINEERING", "Cheat Engine", "https://www.cheatengine.org/", "Memory scanner and editor.", "memory editor game hacking"],
-            ["REVERSE ENGINEERING", "StegOnline", "https://georgeom.net/StegOnline/upload", "Online steganography analyzer.", "steganography image forensics"],
-            ["REVERSE ENGINEERING", "MagicBytes Reference", "https://github.com/Haxrein/MagicBytes", "Repair broken file headers.", "headers repair fix"],
-            ["CRYPTOGRAPHY", "CyberChef", "https://gchq.github.io/CyberChef/", "Multi-tool for encoding and crypto.", "encoding encryption swiss army"],
-            ["CRYPTOGRAPHY", "CrackStation", "https://crackstation.net/", "Fast hash lookup cracker.", "hash lookup passwords"],
-            ["CRYPTOGRAPHY", "TunnelsUp Hash Analyzer", "https://www.tunnelsup.com/hash-analyzer/", "Identify unknown hash types.", "identify hash type"],
-            ["CRYPTOGRAPHY", "Flask-Unsign", "https://github.com/Paradoxis/Flask-Unsign/", "Flask session cookie cracker.", "session cookie cracker"],
-            ["CRYPTOGRAPHY", "Gpg4Win", "https://www.gpg4win.org/", "Email and file encryption (PGP) for Windows.", "encryption pgp app"],
-            ["LEARNING & CTF", "Hack The Box", "https://www.hackthebox.com/", "Interactive pen-testing labs.", "labs penetration testing ctf"],
-            ["LEARNING & CTF", "TryHackMe", "https://tryhackme.com/", "Guided security learning rooms.", "learning rooms security"],
-            ["LEARNING & CTF", "picoCTF", "https://picoctf.org/", "Beginner-friendly CTF platform.", "beginners ctf capture flag"],
-            ["LEARNING & CTF", "Hacker101", "https://www.hacker101.com/", "Web security training and CTFs.", "web security training ctf"],
-            ["LEARNING & CTF", "HackerOne Opportunities", "https://hackerone.com/opportunities/all", "Find bug bounty programs.", "bug bounty programs"],
-            ["LEARNING & CTF", "OWASP Cheat Sheets", "https://cheatsheetseries.owasp.org/index.html", "Web security best practices.", "security cheatsheet owasp"],
-            ["LEARNING & CTF", "Infosec Writeups", "https://infosecwriteups.com/", "CTF walkthroughs and tutorials.", "walkthroughs tutorials writeups"],
-            ["LEARNING & CTF", "Jaxafed", "https://jaxafed.github.io/", "Security research and CTF blog.", "security research writeups"],
-            ["SYSTEM & UTILITIES", "Microsoft Activation Scripts", "https://massgrave.dev/", "MAS windows activation scripts.", "windows activator script"],
-            ["SYSTEM & UTILITIES", "BalenaEtcher", "https://etcher.balena.io/", "Flash OS images to USB drives.", "usb flasher app"],
-            ["SYSTEM & UTILITIES", "Rufus", "https://rufus.ie/", "Create bootable USB drives.", "bootable drive creator"],
-            ["SYSTEM & UTILITIES", "Sublime Text", "https://www.sublimetext.com/", "Sophisticated text editor.", "code text editor app"],
-            ["SYSTEM & UTILITIES", "Keygen.co", "https://keygen.co/", "Physical key creator for Flipper Zero.", "physical key flipper"],
-            ["SYSTEM & UTILITIES", "Revo Uninstaller", "https://www.revouninstaller.com/", "Deep clean program removal.", "uninstaller program cleanup"],
-            ["SYSTEM & UTILITIES", "Ninite", "https://ninite.com/", "Automated bulk app installer.", "install apps automation"],
-            ["OPERATING SYSTEMS", "Kali Linux", "https://www.kali.org/get-kali/#kali-platforms", "The standard pentesting distro.", "offensive security distro"],
-            ["OPERATING SYSTEMS", "Parrot OS", "https://parrotsec.org/download/", "Privacy-focused security OS.", "security privacy distro"],
-            ["OPERATING SYSTEMS", "Tails OS", "https://tails.net/install/index.en.html", "The amnesic incognito live OS.", "security incognito usb"],
-            ["OPERATING SYSTEMS", "Arch Linux", "https://archlinux.org/download/", "Lightweight rolling-release OS.", "operating system rolling"],
-            ["OPERATING SYSTEMS", "Black Arch", "https://blackarch.org/downloads.html", "Pentesting repository for Arch.", "security repo distro"],
-            ["OPERATING SYSTEMS", "CAINE", "https://www.caine-live.net/page5/page5.html", "Digital forensics environment.", "forensics investigation distro"],
-            ["OPERATING SYSTEMS", "Hiren's Boot CD", "https://www.hirensbootcd.org/", "Emergency diagnostic tools.", "recovery troubleshooting pe"],
-            ["OPERATING SYSTEMS", "GParted", "https://gparted.org/download.php", "Advanced disk partitioning tool.", "partition editor disk"],
-            ["OPERATING SYSTEMS", "Linux Mint", "https://linuxmint.com/download.php", "User-friendly desktop Linux.", "casual user distro"],
-            ["OPERATING SYSTEMS", "Lubuntu", "https://lubuntu.me/downloads/", "Extremely fast, lightweight OS.", "fast desktop ubuntu"],
-            ["OPERATING SYSTEMS", "Ubuntu", "https://ubuntu.com/download", "The most popular Linux OS.", "server desktop standard"]
-        ];
+            ["OSINT", "OSINT Framework", "https://osintframework.com/", "Curated directory of OSINT tools and techniques for investigators.", "osint framework directory tools"],
+            ["OSINT", "PimEyes", "https://pimeyes.com/en", "Face search engine that finds matching photos of people in images.", "facial recognition face search images"],
+            ["OSINT", "Intel Techniques", "https://inteltechniques.com/tools/index.html", "Comprehensive OSINT resource hub with dorking guides and advanced search methods.", "osint resources google dorking techniques"],
+            ["OSINT", "Intelligence X", "https://intelx.io/", "Search engine focused on data leaks, public documents, and exposed archives.", "data leak search breach archive intelligence"],
+            ["OSINT", "Epieos", "https://epieos.com/", "Reverse lookup service that gathers information tied to an email address.", "email lookup reverse osint identity"],
+            ["OSINT", "BrowserLeaks", "https://browserleaks.com/", "Test your browser and network for privacy leaks and fingerprinting vectors.", "privacy security ip leak fingerprint"],
+            ["OSINT", "WiGLE", "https://wigle.net/", "Crowdsourced map of wireless networks and Wi‑Fi access points worldwide.", "wireless networks mapping wardriving wifi"],
+            ["OSINT", "Dark Web OSINT Guide", "https://github.com/apurvsinghgautam/dark-web-osint-tools", "Curated list of onion links and deep‑web resources for OSINT work.", "onion links deep web osint darknet"],
+            ["OSINT", "Google Dorks Cheat sheet", "https://mega.nz/file/JX8zzBiT#ba63Ccn9mpv9fpb0jxmX-PqRGC4dkD8eF34mpidv7Ts", "Compact reference for advanced Google search operators and dorking syntax.", "search operators dorks google hacking"],
+            ["NETWORK & RECON", "Shodan", "https://www.shodan.io/", "Search engine that finds exposed internet‑connected devices and services.", "iot search shodan network exposure"],
+            ["NETWORK & RECON", "DNSDumpster", "https://dnsdumpster.com/", "Visual DNS reconnaissance tool for subdomains and infrastructure mapping.", "dns recon domain subdomains mapping"],
+            ["NETWORK & RECON", "DNS Checker", "https://dnschecker.org/", "Global DNS propagation checker showing how DNS records resolve worldwide.", "propagation lookup dns global"],
+            ["NETWORK & RECON", "crt.sh", "https://crt.sh/?q", "Query SSL/TLS certificates to find subdomains and exposed hosts.", "ssl certificates subdomains crtsh"],
+            ["NETWORK & RECON", "ProjectDiscovery Chaos", "https://chaos.projectdiscovery.io/#/", "Recon dataset for assets, domains, and subdomains exposed on the internet.", "recon assets subdomains dataset"],
+            ["NETWORK & RECON", "IP Logger", "https://iplogger.org/", "Create tracking links that log IP addresses and visit metadata.", "tracking link ip logger info"],
+            ["NETWORK & RECON", "Checkphish", "https://checkphish.bolster.ai/", "Automated URL scanner that detects phishing and malicious sites.", "url scanner phishing malware detection"],
+            ["NETWORK & RECON", "YouGetSignal", "https://www.yougetsignal.com/tools/network-location/", "Lookup reverse IP and open ports for network reconnaissance.", "reverse ip lookup ports recon"],
+            ["NETWORK & RECON", "MaxMind GeoIP", "https://www.maxmind.com/en/home", "IP geolocation database for mapping IPs to approximate locations.", "location geolocation ip mapping"],
+            ["NETWORK & RECON", "SpiderFoot", "https://www.spiderfoot.net/", "Automated reconnaissance framework that gathers intelligence from many sources.", "recon framework automation intelligence"],
+            ["NETWORK & RECON", "Subfinder", "https://github.com/projectdiscovery/subfinder", "Fast subdomain discovery tool for footprinting and recon.", "subdomain discovery dns bruteforce"],
+            ["NETWORK & RECON", "Amass", "https://github.com/owasp-amass/amass", "Advanced subdomain enumeration and attack‑surface mapping tool.", "attack surface mapping subdomains dns"],
+            ["NETWORK & RECON", "Wireshark", "https://www.wireshark.org/", "Deep network protocol analyzer for capturing and inspecting traffic.", "packet capture network analysis traffic"],
+            ["WEB SECURITY", "Wappalyzer", "https://www.wappalyzer.com/", "Browser extension that reveals the tech stack behind any website.", "web tech stack fingerprint extension"],
+            ["WEB SECURITY", "FoxyProxy", "https://getfoxyproxy.org/downloads/", "Proxy management extension for fine‑grained web traffic routing.", "proxy management extension browser"],
+            ["WEB SECURITY", "EditThisCookie", "https://www.editthiscookie.com/", "Browser extension to view, edit, and delete cookies on the fly.", "cookie editor extension web security"],
+            ["WEB SECURITY", "Webhook.site", "https://webhook.site/", "Dummy HTTP endpoint to test and inspect incoming webhooks and requests.", "http requests webhook monitor"],
+            ["WEB SECURITY", "Redirect Checker", "https://www.redirect-checker.org/index.php", "Tool that traces and visualizes complex URL redirect chains.", "url redirect path tracing"],
+            ["WEB SECURITY", "Nikto Scanner", "https://github.com/sullo/nikto", "Web server scanner that finds misconfigurations and common vulnerabilities.", "web server scanner misconfigurations"],
+            ["WEB SECURITY", "XSS Cheat Sheet", "https://portswigger.net/web-security/cross-site-scripting/cheat-sheet", "Ready‑to‑use payloads and bypass techniques for XSS testing.", "xss payloads cheatsheets injection"],
+            ["WEB SECURITY", "WordPress File Structure", "https://devowl.io/wordpress/file-folder-structure/", "Guide to default WordPress file and directory layout for security checks.", "wp cms wordpress structure files"],
+            ["EXPLOITATION", "Exploit-DB", "https://www.exploit-db.com/", "Massive public database of verified exploits and proof‑of‑concept code.", "vulnerabilities exploits database poctool"],
+            ["EXPLOITATION", "Reverse Shell Generator", "https://www.revshells.com/", "Generate ready‑made reverse shell payloads and listener commands.", "payloads shells listener reverse"],
+            ["EXPLOITATION", "Payloads All The Things", "https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master", "Repository of attack payloads and bypass techniques for many vectors.", "methodology payloads bypass cheatsheet"],
+            ["EXPLOITATION", "MSFVenom Cheat Sheet", "https://github.com/frizb/MSF-Venom-Cheatsheet", "Concise reference for building Metasploit payloads with msfvenom.", "metasploit cheatsheets payloads"],
+            ["EXPLOITATION", "Vulmon", "https://vulmon.com/", "Vulnerability search engine that links CVEs to real‑world software.", "cve search engine vulnerabilities"],
+            ["EXPLOITATION", "NullSecurity Tools", "https://nullsecurity.net/tools.html", "Collection of niche tools for exploitation, reverse engineering, and pentesting.", "exploit framework tools hacking"],
+            ["POST-EXPLOITATION", "LinEnum", "https://github.com/rebootuser/LinEnum", "Linux enumeration script that hunts privesc opportunities on compromised systems.", "linux privesc script enumeration"],
+            ["POST-EXPLOITATION", "PEASS-ng", "https://github.com/peass-ng/PEASS-ng", "Privilege escalation scripts for both Windows and Linux environments.", "privesc scripts windows linux"],
+            ["POST-EXPLOITATION", "GTFOBins", "https://gtfobins.org/", "Curated list of Unix binaries usable for privilege escalation and bypass.", "linux binaries privesc bypass"],
+            ["POST-EXPLOITATION", "SecLists", "https://github.com/danielmiessler/SecLists", "Huge collection of wordlists for passwords, fuzzing, and brute‑force attacks.", "wordlists passwords fuzzing brute"],
+            ["REVERSE ENGINEERING", "x64dbg", "https://x64dbg.com/", "Open‑source debugger for analyzing Windows binaries and reverse engineering malware.", "windows debugger binary analysis"],
+            ["REVERSE ENGINEERING", "Binary Ninja", "https://binary.ninja/free/", "Fast disassembler and reverse‑engineering suite with rich scripting.", "disassembler analysis tool reverse"],
+            ["REVERSE ENGINEERING", "Binwalk", "https://github.com/ReFirmLabs/binwalk", "Tool for analyzing and extracting embedded files from firmware images.", "firmware analysis extraction bin"],
+            ["REVERSE ENGINEERING", "dnSpy", "https://github.com/dnSpy/dnSpy", ".NET decompiler and debugger for reverse engineering .NET assemblies.", "net decompiler debugger assembly"],
+            ["REVERSE ENGINEERING", "Cheat Engine", "https://www.cheatengine.org/", "Memory scanner and editor often used in game‑hacking and RE.", "memory editor game hacking debug"],
+            ["REVERSE ENGINEERING", "StegOnline", "https://georgeom.net/StegOnline/upload", "Web‑based steganography analyzer for detecting hidden data in images.", "steganography image forensics analyze"],
+            ["REVERSE ENGINEERING", "MagicBytes Reference", "https://github.com/Haxrein/MagicBytes", "Lookup table and guide for fixing broken file headers and magic bytes.", "file headers magic bytes repair"],
+            ["CRYPTOGRAPHY", "CyberChef", "https://gchq.github.io/CyberChef/", "Web‑based multi‑tool for encoding, decryption, and data analysis.", "encoding encryption data analysis"],
+            ["CRYPTOGRAPHY", "CrackStation", "https://crackstation.net/", "Fast online hash lookup service for cracking common password hashes.", "hash lookup passwords cracking"],
+            ["CRYPTOGRAPHY", "TunnelsUp Hash Analyzer", "https://www.tunnelsup.com/hash-analyzer/", "Auto‑recognize hash types from raw strings or hex values.", "identify hash type cryptanalysis"],
+            ["CRYPTOGRAPHY", "Flask-Unsign", "https://github.com/Paradoxis/Flask-Unsign/", "Tool to crack and generate Flask session cookies for security testing.", "session cookie cracker flask"],
+            ["CRYPTOGRAPHY", "Gpg4Win", "https://www.gpg4win.org/", "Windows suite for PGP‑based email and file encryption.", "encryption pgp app gpg"],
+            ["LEARNING & CTF", "Hack The Box", "https://www.hackthebox.com/", "Interactive penetration‑testing platform with vulnerable machines and challenges.", "labs penetration testing ctf platform"],
+            ["LEARNING & CTF", "TryHackMe", "https://tryhackme.com/", "Guided learning rooms that teach security topics hands‑on.", "learning rooms security ctf"],
+            ["LEARNING & CTF", "picoCTF", "https://picoctf.org/", "Beginner‑friendly CTF platform for learning practical security skills.", "beginners ctf capture flag learning"],
+            ["LEARNING & CTF", "Hacker101", "https://www.hacker101.com/", "Free web‑security courses and mini‑CTFs.", "web security training ctf course"],
+            ["LEARNING & CTF", "HackerOne Opportunities", "https://hackerone.com/opportunities/all", "Directory of public bug bounty programs and security opportunities.", "bug bounty programs hunting"],
+            ["LEARNING & CTF", "OWASP Cheat Sheets", "https://cheatsheetseries.owasp.org/index.html", "Practical security cheat sheets for web and app developers.", "security cheatsheet owasp development"],
+            ["LEARNING & CTF", "Infosec Writeups", "https://infosecwriteups.com/", "Community‑driven writeups of security research and CTF solutions.", "walkthroughs tutorials writeups ctf"],
+            ["LEARNING & CTF", "Jaxafed", "https://jaxafed.github.io/", "Security blog with writeups, research, and CTF content.", "security research writeups blog"],
+            ["SYSTEM & UTILITIES", "Microsoft Activation Scripts", "https://massgrave.dev/", "Open‑source scripts to activate Windows without keys.", "windows activator script offline"],
+            ["SYSTEM & UTILITIES", "BalenaEtcher", "https://etcher.balena.io/", "Simple cross‑platform utility for flashing OS images to USB drives.", "usb flasher app image burner"],
+            ["SYSTEM & UTILITIES", "Rufus", "https://rufus.ie/", "Tool to create bootable USB drives from ISOs and disk images.", "bootable drive creator windows"],
+            ["SYSTEM & UTILITIES", "Sublime Text", "https://www.sublimetext.com/", "Fast and powerful text and code editor for developers and analysts.", "code text editor syntax"],
+            ["SYSTEM & UTILITIES", "Keygen.co", "https://keygen.co/", "Toolset for creating physical keys compatible with Flipper Zero and card readers.", "physical key flipper emulating"],
+            ["SYSTEM & UTILITIES", "Revo Uninstaller", "https://www.revouninstaller.com/", "Advanced uninstaller that removes leftover files and registry entries.", "uninstaller program cleanup registry"],
+            ["SYSTEM & UTILITIES", "Ninite", "https://ninite.com/", "Automated installer that deploys multiple Windows apps silently and cleanly.", "install apps automation batch"],
+            ["SYSTEM & UTILITIES", "ShutUp10", "https://www.oo-software.com/en/shutup10/", "Portable Windows tool to disable telemetry, tracking, and unnecessary features.", "windows privacy telemetry debloat tool"],
+            ["OPERATING SYSTEMS", "Kali Linux", "https://www.kali.org/get-kali/#kali-platforms", "Offensive‑security‑focused Linux distro for penetration testing.", "offensive security distro pentest"],
+            ["OPERATING SYSTEMS", "Parrot OS", "https://parrotsec.org/download/", "Privacy‑oriented security OS for pentesting and forensics.", "security privacy distro forensics"],
+            ["OPERATING SYSTEMS", "Tails OS", "https://tails.net/install/index.en.html", "Amnesic live OS that routes traffic through Tor and leaves no traces.", "security incognito usb tor"],
+            ["OPERATING SYSTEMS", "Arch Linux", "https://archlinux.org/download/", "Lightweight rolling‑release Linux with full system control.", "operating system rolling minimal"],
+            ["OPERATING SYSTEMS", "Black Arch", "https://blackarch.org/downloads.html", "Security‑focused repository of tools for Arch Linux.", "security repo distro tools"],
+            ["OPERATING SYSTEMS", "CAINE", "https://www.caine-live.net/page5/page5.html", "Forensics‑oriented Linux distro for digital‑evidence collection.", "forensics investigation distro disk"],
+            ["OPERATING SYSTEMS", "Hiren's Boot CD", "https://www.hirensbootcd.org/", "Legacy boot‑able toolkit for system diagnostics and recovery.", "recovery troubleshooting pe tools"],
+            ["OPERATING SYSTEMS", "GParted", "https://gparted.org/download.php", "Powerful partition editor and disk management tool for Linux.", "partition editor disk manager"],
+            ["OPERATING SYSTEMS", "Linux Mint", "https://linuxmint.com/download.php", "User‑friendly desktop Linux distro ideal for beginners.", "casual user distro desktop linux"],
+            ["OPERATING SYSTEMS", "Lubuntu", "https://lubuntu.me/downloads/", "Extremely lightweight Ubuntu‑based OS for older hardware.", "fast desktop ubuntu lightweight"],
+            ["OPERATING SYSTEMS", "Ubuntu", "https://ubuntu.com/download", "Mainstream Linux OS for servers, desktops, and cloud.", "server desktop standard linux"]
+];
 
         function openModal(name, url, desc) {
             const overlay = document.getElementById('modal-overlay');
@@ -304,7 +441,7 @@
                 if (!categories[cat]) categories[cat] = [];
                 categories[cat].push({ name, url, desc, tags });
             });
-            Object.keys(categories).sort((a,b) => categories[b].length - categories[a].length).forEach(cat => {
+            Object.keys(categories).sort((a, b) => categories[b].length - categories[a].length).forEach(cat => {
                 const node = document.createElement('div');
                 node.className = 'category-node';
                 node.innerHTML = `
@@ -314,7 +451,7 @@
                     </div>
                     <div class="category-content"><div class="content-inner"><div class="tools-grid"></div></div></div>`;
                 const grid = node.querySelector('.tools-grid');
-                categories[cat].sort((a,b) => a.name.localeCompare(b.name)).forEach(tool => {
+                categories[cat].sort((a, b) => a.name.localeCompare(b.name)).forEach(tool => {
                     const btn = document.createElement('div');
                     btn.className = 'tool-link';
                     btn.innerText = tool.name;
@@ -350,4 +487,5 @@
         buildJAT();
     </script>
 </body>
+
 </html>
