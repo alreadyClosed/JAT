@@ -322,7 +322,7 @@
     <div class="container">
         <header>
             <h1>[ JAT_FRAMEWORK ]</h1>
-            <div style="font-size: 0.8rem; color: var(--success); font-family: monospace;">v5.1 STABLE</div>
+            <div style="font-size: 0.8rem; color: var(--success); font-family: monospace;">v5.2 STABLE</div>
         </header>
 
         <input type="text" id="searchJAT" placeholder="Search tools..." onkeyup="searchTools()">
@@ -427,8 +427,32 @@
             ["OPERATING SYSTEMS", "GParted", "https://gparted.org/download.php", "Powerful partition editor and disk management tool for Linux.", "partition editor disk manager"],
             ["OPERATING SYSTEMS", "Linux Mint", "https://linuxmint.com/download.php", "User‑friendly desktop Linux distro ideal for beginners.", "casual user distro desktop linux"],
             ["OPERATING SYSTEMS", "Lubuntu", "https://lubuntu.me/downloads/", "Extremely lightweight Ubuntu‑based OS for older hardware.", "fast desktop ubuntu lightweight"],
-            ["OPERATING SYSTEMS", "Ubuntu", "https://ubuntu.com/download", "Mainstream Linux OS for servers, desktops, and cloud.", "server desktop standard linux"]
-];
+            ["OPERATING SYSTEMS", "Ubuntu", "https://ubuntu.com/download", "Mainstream Linux OS for servers, desktops, and cloud.", "server desktop standard linux"],
+            ["SYSTEM & UTILITIES", "CherryTree", "https://www.giuspen.net/cherrytree/", "Hierarchical note-taking app storing notes in tree structure with rich text, syntax highlighting, and SQLite/XML storage.", "notes notetaking tree hierarchical portable"],
+            ["REVERSE ENGINEERING", "HxD", "https://mh-nexus.de/en/downloads.php?product=HxD20", "Freeware hex and disk editor for Windows supporting binary file editing, RAM inspection, and disk sector analysis.", "hex editor binary disk sectors windows"],
+            ["SYSTEM & UTILITIES", "RG-Adguard", "https://files.rg-adguard.net/", "Download unmodified Microsoft software and Windows updates directly from official Microsoft servers without bloatware.", "microsoft iso windows office download clean"],
+            ["OSINT", "Have I Been Pwned", "https://haveibeenpwned.com/", "Check if an email or password has been exposed in known data breaches with breach notification support.", "breach email password exposure check"],
+            ["SYSTEM & UTILITIES", "ImgBurn", "https://www.imgburn.com/", "Free Windows tool for burning CDs/DVDs/Blu-rays and creating or editing disc images with verification support.", "iso burn disc image cd dvd"],
+            ["HARDWARE", "ASProgrammer Dregmod", "https://github.com/therealdreg/asprogrammer-dregmod", "Modified ASProgrammer for reading and writing SPI flash chips, useful for BIOS dumping and chip programming.", "spi flash programmer bios chip eeprom"],
+            ["LEARNING & CTF", "DVWA", "https://github.com/digininja/DVWA", "Deliberately vulnerable PHP/MySQL web app for practicing SQLi, XSS, CSRF and other web attacks locally.", "vulnerable web app practice sqli xss training"],
+            ["HARDWARE", "OpenWRT", "https://openwrt.org/", "Open-source Linux firmware for routers enabling advanced networking, custom packages, and full device control.", "router firmware linux embedded networking"],
+            ["SYSTEM & UTILITIES", "PuTTY", "https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html", "SSH/Telnet client and serial console utility for Windows, essential for remote access and embedded device communication.", "ssh telnet serial console remote access"],
+            ["FORENSICS", "Autopsy", "https://www.autopsy.com/", "Open-source digital forensics platform for disk image analysis with timeline, keyword search, and reporting.", "forensics disk image analysis investigation timeline"],
+            ["FORENSICS", "Volatility 3", "https://github.com/volatilityfoundation/volatility3", "Advanced memory forensics framework for analyzing RAM dumps from Windows, Linux, macOS, and Android.", "memory forensics ram dump analysis volatility"],
+            ["FORENSICS", "RegRipper", "https://github.com/msuhanov/regripper", "Perl tool for parsing Windows Registry hives to extract forensic artifacts like user activity and installed software.", "registry forensics windows artifacts parser"],
+            ["HARDWARE", "OpenOCD", "https://openocd.org/", "Open On-Chip Debugger for embedded systems via JTAG/SWD, supporting GDB integration and firmware flashing.", "jtag swd embedded debug firmware microcontroller"],
+            ["HARDWARE", "PulseView", "https://sigrok.org/wiki/PulseView/", "Cross-platform GUI for logic analyzers displaying protocol decodes like I2C, SPI, and UART from captured signals.", "logic analyzer signals protocol decode i2c spi uart"],
+            ["HARDWARE", "EDL", "https://github.com/bkerler/edl", "Emergency Download Mode tools for Qualcomm Android devices enabling low-level flashing and unbricking via firehose.", "qualcomm edl flash unbrick android firmware"],
+            ["HARDWARE", "Flashrom", "https://www.flashrom.org/", "Open-source utility for reading, writing, and erasing flash ROM chips on mainboards, GPUs, and embedded devices.", "flash rom chip eeprom bios mainboard programmer"],
+            ["HARDWARE", "Hak5 Shop", "https://shop.hak5.org/", "Official store for Hak5 pentesting hardware including WiFi Pineapple, USB Rubber Ducky, Bash Bunny, and LAN Turtle for red teaming and wireless attacks.", "pentest hardware ducky pineapple bunny implants"],
+            ["SDR & WIRELESS", "RTL-SDR", "https://www.rtl-sdr.com/", "Community hub for RTL2832U software-defined radio dongles covering ADS-B, scanning, and reception up to 1.75 GHz.", "sdr rtl radio scanner adsb frequency"],
+            ["SDR & WIRELESS", "GQRX", "https://gqrx.dk/", "Open-source SDR receiver with spectrum display and demodulation for AM, FM, and digital modes via GNU Radio.", "sdr receiver spectrum gnuradio demodulation"],
+            ["SDR & WIRELESS", "rtl_433", "https://github.com/merbanan/rtl_433", "Decode 433/868 MHz ISM band signals from weather sensors, doorbells, and garage openers using RTL-SDR.", "433mhz ism decode sensors weather doorbell rtlsdr"],
+            ["MALWARE ANALYSIS", "ANY.RUN", "https://any.run/", "Interactive malware sandbox for safely executing suspicious files and URLs with detailed behavioral analysis reports.", "sandbox malware dynamic analysis behavior interactive"],
+            ["MALWARE ANALYSIS", "Hybrid Analysis", "https://www.hybrid-analysis.com/", "Free malware analysis service with static and dynamic file detonation powered by Falcon Sandbox.", "malware sandbox static dynamic falcon analysis"],
+            ["MALWARE ANALYSIS", "MalwareBazaar", "https://malwarebazaar.abuse.ch/", "Community repository for sharing malware samples with YARA scanning, IOCs, and threat hunting feeds.", "malware samples yara ioc threat hunting research"],
+
+        ];
 
         function openModal(name, url, desc) {
             const overlay = document.getElementById('modal-overlay');
