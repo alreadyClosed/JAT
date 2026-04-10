@@ -1,8 +1,8 @@
-# [ JAT_FRAMEWORK ] v5.1
+# [ JAT_FRAMEWORK ] v5.2
 > **John's Awesome Tools** • A clean, terminal-inspired workstation for OSINT, Cybersecurity, and Research.
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Status-v5.0_STABLE-success?style=for-the-badge&logo=github" />
+  <img src="https://img.shields.io/badge/Status-v5.2_STABLE-success?style=for-the-badge&logo=github" />
   <img src="https://img.shields.io/badge/UI-Terminal_Dark-f0883e?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Theme-Neon_Orange-f0883e?style=for-the-badge" />
 </p>
@@ -15,7 +15,7 @@
 ---
 
 ## 🖥️ Overview
-**JAT** is a lightweight, single-page interface designed for quick access to web-based tools. It organizes 70+ resources into a searchable, categorized layout that works directly in any browser without extra setup.
+**JAT** is a lightweight, single-page interface designed for quick access to web-based tools. It organizes **100+** resources into a searchable, categorized layout that works directly in any browser without extra setup.
 
 ### 🔍 Key Features
 - **Modal Descriptions:** Click a tool to see a pop-up with its specific purpose and metadata before launching.
@@ -42,11 +42,15 @@
 | **WEB SECURITY** | Request analysis and CMS testing |
 | **EXPLOITATION** | Shell generators and vulnerability databases |
 | **POST-EXPLOITATION** | Privilege escalation and wordlists |
-| **REVERSE ENGINEERING** | Debugging and file analysis |
+| **REVERSE ENGINEERING** | Debugging and binary analysis |
 | **CRYPTOGRAPHY** | Encoding, hashing, and decryption |
 | **LEARNING & CTF** | Training platforms and security documentation |
 | **SYSTEM & UTILITIES** | OS flashing and system optimization |
 | **OPERATING SYSTEMS** | Quick links to security-focused distributions |
+| **HARDWARE** | Embedded systems, firmware, and SPI flashing |
+| **FORENSICS** | Disk imaging, memory analysis, and registry artifacts |
+| **SDR & WIRELESS** | Software Defined Radio and signal decoding |
+| **MALWARE ANALYSIS** | Sandboxing and behavioral reporting |
 
 ---
 
@@ -65,7 +69,7 @@ git clone https://github.com/alreadyClosed/JAT.git
 ---
 
 ## 📝 Configuration
-To add or remove links, edit the `myTools` array in the script section. Note the updated format for v5.0:
+To add or remove links, edit the `myTools` array in the script section. 
 ```
 const myTools = [
     ["CATEGORY", "Tool Name", "https://url-link.com", "Short Description", "search tags"],
